@@ -1,0 +1,14 @@
+#-- 大元のPHP --#
+- name: Install PHP7.3
+  yum:
+    name:
+      - php73
+      - php73-cli
+      - php73-common
+      - php73-devel
+      - php73-opcache
+      - php73-mbstring
+      - php73-mysqlnd
+      - php73-pdo
+      - php73-gd
+    state: present

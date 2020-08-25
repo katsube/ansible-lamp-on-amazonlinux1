@@ -1,0 +1,19 @@
+#-- Locale --#
+- name: Set locale to Japan 1
+  command: cp -p /usr/share/zoneinfo/Japan /etc/localtime
+- name: Set locale to Japan 2
+  lineinfile:
+    dest: '/etc/sysconfig/clock'
+    state: present
+    backrefs: yes
+    backup: yes
+    regexp: "{{item.regexp}}"
+    line: "{{item.line}}"
+  with_items:
+    - { regexp: '^ZONE="UTC"', line: 'ZONE="Asia/Tokyo"' }
+    - { regexp: '^UTC=true',   line: 'UTC=false' }
+
+#-- TimeZone --#
+- name: Set timezone to Asia/Tokyo
+  timezone:
+    name: "Asia/Tokyo"

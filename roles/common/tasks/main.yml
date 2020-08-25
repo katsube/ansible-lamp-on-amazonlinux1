@@ -1,0 +1,6 @@
+- include_tasks: roles/common/tasks/locale.yml
+- include_tasks: roles/common/tasks/swap.yml
+  when: create_swap == true
+- include_tasks: roles/common/tasks/yum.yml
+- include_tasks: roles/common/tasks/vcs.yml
+
