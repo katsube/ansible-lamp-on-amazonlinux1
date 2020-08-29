@@ -1,7 +1,7 @@
 # Setting up the LAMP on AmazonLinux1 with Ansible
 Amazon Linux1にコマンド一発でLAMP環境を構築します。主にLightsailでの利用を想定しています。
 ```shellsession
-$ ansible-playbook site.yml
+$ ansible-playbook -i inventories/develop site.yml
 ```
 
 ## インストール内容
@@ -35,7 +35,7 @@ https://docs.ansible.com/ansible/2.9_ja/installation_guide/intro_installation.ht
 ### 設定ファイルの変更
 最低限の設定内容を記載します。
 
-#### inventory/production
+#### inventories/(環境)/hosts
 接続情報を設定します。
 
 適当なテキストエディタで開き、作成したインスタンスのIPアドレスやドメインを記入してください。また必要があればSSHのポートやログインするユーザーも変更してください。
@@ -54,7 +54,7 @@ ansible_ssh_private_key_file=~/.ssh/id_rsa
 ansible_python_interpreter=/usr/bin/python
 ```
 
-#### group_vars/webservers
+#### inventories/(環境)/group_vars/webserver
 Apacheの設定項目をYAML形式で入力します。
 
 ```yaml
@@ -69,7 +69,7 @@ apache:
     group: root
 ```
 
-#### group_vars/dbservers
+#### inventories/(環境)/group_vars/webserver
 MySQLの設定項目をYAML形式で入力します。
 
 ```yaml
