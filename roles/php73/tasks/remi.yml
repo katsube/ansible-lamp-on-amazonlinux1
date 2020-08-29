@@ -1,0 +1,6 @@
+#-- remi --#
+- name: Install REMI Repository
+  yum:
+    name:
+      - http://rpms.remirepo.net/enterprise/remi-release-6.rpm
+    state: present

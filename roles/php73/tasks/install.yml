@@ -2,13 +2,20 @@
 - name: Install PHP7.3
   yum:
     name:
-      - php73
-      - php73-cli
-      - php73-common
-      - php73-devel
-      - php73-opcache
-      - php73-mbstring
-      - php73-mysqlnd
-      - php73-pdo
-      - php73-gd
+      - ftp://ftp.scientificlinux.org/linux/scientific/6.4/x86_64/updates/fastbugs/scl-utils-20120927-8.el6.x86_64.rpm
+      - php73-php
+      - php73-php-cli
+      - php73-php-common
+      - php73-php-devel
+      - php73-php-opcache
+      - php73-php-mbstring
+      - php73-php-mysqlnd
+      - php73-php-pdo
     state: present
+
+#-- symlink --#
+- name: Create symbolic link
+  file:
+    src: "/usr/bin/php73"
+    dest: "/usr/bin/php"
+    state: link

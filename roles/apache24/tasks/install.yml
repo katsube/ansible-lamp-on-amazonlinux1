@@ -1,6 +1,14 @@
 #-----------------------------------------------------
 # Apache
 #-----------------------------------------------------
+#-- 古いApacheが入っていれば削除 --#
+- name: Remove old Apache
+  yum:
+    name:
+      - httpd
+      - httpd-tools
+    state: absent
+
 #-- Apache追加 --#
 - name: Install Apache 2.4
   yum:

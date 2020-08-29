@@ -1,7 +1,7 @@
 #-- php.ini編集 --#
-- name: Edit /etc/php.ini
+- name: Edit /etc/opt/remi/php73/php.ini
   lineinfile:
-    dest: "/etc/php.ini"
+    dest: "/etc/opt/remi/php73/php.ini"
     regexp: "{{item.regexp}}"
     line: "{{item.line}}"
   with_items:

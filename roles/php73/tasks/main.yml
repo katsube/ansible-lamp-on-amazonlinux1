@@ -1,3 +1,4 @@
+- include_tasks: roles/php73/tasks/remi.yml
 - include_tasks: roles/php73/tasks/install.yml
 - include_tasks: roles/php73/tasks/phpini.yml
 - include_tasks: roles/php73/tasks/composer.yml
